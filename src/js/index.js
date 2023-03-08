@@ -1,12 +1,10 @@
-import { newProject, newTask } from "./creation.js";
+import { newProject, newTask, editTasks } from "./creation.js";
 import { updateProjects, updateSelection, updateTasks } from "./display.js";
 
 const taskForm = document.getElementById("task-form");
 const projectForm = document.getElementById("project-form");
 let myProjects = JSON.parse(localStorage.getItem("Projects"));
 let myTasks = JSON.parse(localStorage.getItem("Tasks"));
-
-console.log("Script run ;/");
 
 taskForm.addEventListener("submit", (e) => {
   myTasks = JSON.parse(localStorage.getItem("Tasks"));

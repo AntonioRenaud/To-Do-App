@@ -3,5 +3,6 @@ export default class Task {
     this.title = title;
     this.date = date;
     this.project = project;
+    this.status = "Unconpleted";
   }
 }
