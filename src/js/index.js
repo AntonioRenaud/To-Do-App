@@ -31,3 +31,4 @@ updateSelection();
 updateProjects();
 updateTasks();
 console.log(myProjects);
+console.log(myTasks);

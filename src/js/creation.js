@@ -1,6 +1,8 @@
 import Project from "./projects";
 import Task from "./tasks";
 
+/*Creates new Project, taking a title as a parameter
+ and storing them to localstore object named Projects*/
 function newProject(title) {
   let myProjects = JSON.parse(localStorage.getItem("Projects"));
   if (myProjects == null) myProjects = [];
@@ -8,6 +10,8 @@ function newProject(title) {
   localStorage.setItem("Projects", JSON.stringify(myProjects));
 }
 
+/*creates a new task, taking title, date and project name
+ as parameter storing them to localstore object named Tasks*/
 function newTask(title, date, project) {
   let myTasks = JSON.parse(localStorage.getItem("Tasks"));
   if (myTasks == null) myTasks = [];
@@ -15,6 +19,8 @@ function newTask(title, date, project) {
   localStorage.setItem("Tasks", JSON.stringify(myTasks));
 }
 
+/*Takes Tasks object out of localstorage, edits or deletes an entry
+and stores the object back to localstorage*/
 function editTasks(index, property, value) {
   let myTasks = JSON.parse(localStorage.getItem("Tasks"));
   if (property === "title") {
@@ -33,4 +39,10 @@ function editTasks(index, property, value) {
   localStorage.setItem("Tasks", JSON.stringify(myTasks));
 }
 
-export { newProject, newTask, editTasks };
+function checkCompleted(index) {
+  let myTasks = JSON.parse(localStorage.getItem("Tasks"));
+  if (myTasks[index].status === "Completed") {
+    return true;
+  }
+}
+export { newProject, newTask, editTasks, checkCompleted };
